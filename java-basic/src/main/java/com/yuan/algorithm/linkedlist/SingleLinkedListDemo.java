@@ -30,6 +30,29 @@ public class SingleLinkedListDemo {
       list.del(1);
       System.out.println("删除后的链表：");
       list.list();
+      
+      //count++
+      //cur=head.next;
+      
+   }
+   public static void reverseList(HeroNode node){
+      //判空
+      if (node.next==null || node.next.next==null){
+         return;
+      }
+      //定义辅助变量cur，
+      HeroNode cur=node.next;
+      HeroNode next=null;
+      HeroNode reverseHead=new HeroNode(0,"","");
+      //遍历原来的单链表，每遍历一个节点，将其取出，放在reverseHead的最前面
+      while (cur != null){
+         next=cur.next;
+         cur.next=reverseHead.next;//将cur的下一个节点指向新链表的最前端
+         reverseHead.next=cur;//将cur连接到新的链表上
+         cur=next;//cur后移
+         
+      }
+      node.next=reverseHead.next;
    }
 }
 //创建一个单链表
